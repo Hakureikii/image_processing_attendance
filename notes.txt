@@ -1,0 +1,3 @@
+Note:
+   Create a scanner model with 2 methods: scan_qr and recognize_face
+   Run the qr code scanner on main file

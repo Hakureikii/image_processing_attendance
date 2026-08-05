@@ -1,12 +1,12 @@
 import cv2 as cv
 import face_recognition as fr
 
-camera = cv.VideoCapture(0)
-
 def scan_face():
+   camera = cv.VideoCapture(0)
    while True:
       ret, frame = camera.read()
       if not ret:
+         print("Failed to capture frame from camera. Exiting...")
          break
 
       subject_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
@@ -23,7 +23,5 @@ def scan_face():
       if cv.waitKey(1) & 0xFF == ord('q'):
          break
 
-camera.release()
-cv.destroyAllWindows()
 
 scan_face()

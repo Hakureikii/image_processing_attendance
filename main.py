@@ -1,25 +1,28 @@
-import scanner as scan
+import scanner as sc
 import keyboard as kb
 
-qr = scan.Scanner()
-face = scan.Scanner()
+qr = sc.Scanner()
+face = sc.Scanner()
+
+
 def main():
-    # scanner.scan_qr_code()
-    face.scan_face()
-    # if scanner.scan_qr_code():
-    #     # scanner.kill()
-    #     scanner.scan_face()
+    qr.scan_qr_code()
 
-   #  if kill():
-   #      scanner.kill()
+    if qr.scan_qr_code():
+        qr.kill()
+        face.scan_face()
+        return
 
-def kill() -> bool:  
-    return True
+    if face.scan_face():
+        pass
+        # Record attendance
+        return
 
-if kill:
+
+def kill():
+    qr.kill()
     face.kill()
-    
+
 
 main()
-kb.add_hotkey('q', kill)
-kb.wait('esc') # exit or terminate program
+kb.add_hotkey("q", kill())
